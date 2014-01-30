@@ -10,6 +10,8 @@ set :use_sudo, false
 set(:deploy_to) { "/home/app/#{application}" }
 
 set :normalize_asset_timestamps, false
+set :ruby_path, "/home/app/.rbenv/versions/2.1.0/"
+set :bundle_cmd, "PATH=/home/app/.rbenv/versions/2.1.0/bin/:$PATH bundle"
 
 after "deploy:restart", "deploy:cleanup"
 
@@ -29,3 +31,5 @@ end
 after 'deploy:create_symlink' do
   symlink_config
 end
+
+require 'bundler/capistrano'
