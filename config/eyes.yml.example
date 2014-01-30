@@ -1,0 +1,12 @@
+:debug:
+  :offset:
+    :x: 0
+    :y: 0
+:default:
+  :offset:
+    :x: 0
+    :y: 0
+:cartoon:
+  :offset:
+    :x: 0
+    :y: -60
