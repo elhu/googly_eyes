@@ -23,7 +23,7 @@ class FaceFinder
     }
     resp = @conn.post ENDPOINT, options
     data = JSON.parse(resp.body)
-    data["face_detection"].map do |face_attrs|
+    (data["face_detection"] || []).map do |face_attrs|
       Face.new({
         left_eye: face_attrs["eye_left"],
         right_eye: face_attrs["eye_right"],

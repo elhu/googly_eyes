@@ -1,6 +1,7 @@
 require 'digest/md5'
-require 'mini_magick'
 require 'faraday'
+require 'mini_magick'
+require 'open-uri'
 
 require 'googly_eyes/eyes_cache'
 require 'googly_eyes/face'
@@ -11,7 +12,8 @@ class Googlify
 
   def initialize(url, eye_style = :default)
     @url = url
-    blob = Faraday.new(url: @url).get.body
+    conn = Faraday.new(url: URI::encode(@url))
+    blob = conn.get { |r| r.options.timeout = 5; r.options.open_timeout = 2 }.body
     @image = MiniMagick::Image.read(blob)
     @eye_style = eye_style
   end

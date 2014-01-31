@@ -7,5 +7,5 @@ gem 'whenever'
 
 group :development do
   gem 'pry'
-  gem 'capistrano'
+  gem 'capistrano', '< 3'
 end
