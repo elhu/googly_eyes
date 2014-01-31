@@ -24,6 +24,7 @@ class Googlify
     hash = MD5.hexdigest("#{@url}:#{@eye_style}")
     filepath = "public/eyesoup/#{hash}.jpg"
     @image.write(filepath)
+    File.chmod(0644, filepath)
     filepath
   end
 
