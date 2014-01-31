@@ -20,10 +20,10 @@ class API < Sinatra::Base
   end
 
   get '/styles' do
-    EyesCache.available_styles.to_json
+    (EyesCache.available_styles - [:debug]).to_json
   end
 
   get '/' do
-    [200, 'Endpoint is at /googlify']
+    [200, File.read('public/index.html')]
   end
 end

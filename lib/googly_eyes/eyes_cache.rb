@@ -4,7 +4,7 @@ require 'yaml'
 class EyesCache
   class << self
     def available_styles
-      @available_styles ||= (Dir.entries('assets/') - %w(. .. debug)).map(&:to_sym)
+      @available_styles ||= eyes_config.keys
     end
 
     def eyes_for(style)
