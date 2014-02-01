@@ -1,15 +1,47 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <title>Googly Eyes!</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link media="all" type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-nr-min.css" />
+    <link media="all" type="text/css" rel="stylesheet" href="/stylesheets/googlify.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/javascripts/googlify.js"></script>
   </head>
   <body>
-    <form id="googlify" action="googlify" method='GET'>
-      <label for="url">Let's add googly eyes on: </label>
-      <input type="text" name="url" />
-      <select name="style">
-      </select>
-      <input type="submit" value="Googlify!" />
-    </form>
+    <div class="header">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        <img src="/images/logo.png"></img>
+        <a class="pure-menu-heading" href="">Put googly eyes on things!</a>
+        <p>Disclaimer: This website was tested on animals. It does not work.</p>
+        <ul>
+          <li><a href="http://twitter.com/elhu">Twitter</a></li>
+          <li><a href="http://github.com/elhu/googly_eyes">Github</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <form id="googlify" class="pure-form pure-form-aligned" action="googlify" method='GET'>
+        <fieldset>
+          <legend>Help me put googly eyes on something!</legend>
+
+          <div class="pure-control-group">
+            <label for="url">First, pick an image</label>
+            <input type="text" name="url" placeholder="url" />
+          </div>
+
+          <div class="pure-control-group">
+            <label for="style">Then, pick a style</label>
+            <select name="style"></select>
+          </div>
+
+          <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">
+              Googlify!
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
   </body>
 </html>
