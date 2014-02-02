@@ -36,5 +36,5 @@ after 'deploy:create_symlink' do
   run "ln -nfs #{shared_path}/public/eyesoup #{current_path}/public/eyesoup"
 end
 
-
 require 'bundler/capistrano'
+require 'whenever/capistrano'
