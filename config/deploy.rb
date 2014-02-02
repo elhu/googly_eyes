@@ -7,6 +7,8 @@ role :app, "elhu.me"                          # This may be the same as your `We
 set :user, 'app'
 set :use_sudo, false
 
+set :branch, 'whenver'
+
 set(:deploy_to) { "/home/app/#{application}" }
 
 set :normalize_asset_timestamps, false
