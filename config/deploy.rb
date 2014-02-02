@@ -1,8 +1,9 @@
 set :application, 'googly-eyes'
 set :repository,  'git@github.com:elhu/googly_eyes.git'
 
-role :web, "elhu.me"                          # Your HTTP server, Apache/etc
-role :app, "elhu.me"                          # This may be the same as your `Web` server
+role :web, "elhu.me"
+role :app, "elhu.me"
+role :db, "elhu.me"
 
 set :user, 'app'
 set :use_sudo, false
