@@ -12,22 +12,27 @@ class Googlify
 
   def initialize(url, eye_style = :default)
     @url = url
-    conn = Faraday.new(url: URI::encode(@url))
-    blob = conn.get { |r| r.options.timeout = 5; r.options.open_timeout = 2 }.body
-    @image = MiniMagick::Image.read(blob)
     @eye_style = eye_style
   end
 
   def googlify!
+    return filepath if File.exists?(filepath)
+    conn = Faraday.new(url: URI::encode(@url))
+    blob = conn.get { |r| r.options.timeout = 5; r.options.open_timeout = 2 }.body
+    @image = MiniMagick::Image.read(blob)
     faces = FaceFinder.new.find_faces(@url)
     faces.each do |face|
       place_googly_eyes(face)
     end
-    hash = MD5.hexdigest("#{@url}:#{@eye_style}")
-    filepath = "public/eyesoup/#{hash}.jpg"
     @image.write(filepath)
     File.chmod(0644, filepath)
     filepath
+  end
+
+  def filepath
+    return @filepath unless @filepath.nil?
+    hash = MD5.hexdigest("#{@url}:#{@eye_style}")
+    @filepath = "public/eyesoup/#{hash}.jpg"
   end
 
   private
