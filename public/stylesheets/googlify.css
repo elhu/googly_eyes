@@ -54,6 +54,7 @@
 
 .result img {
   display: inline-block;
+  max-width: 800px;
 }
 
 .hidden {
