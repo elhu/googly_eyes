@@ -55,6 +55,9 @@ $(document).ready(function() {
     event.preventDefault();
     var url = $(event.target).find("input[name=url]")[0].value;
     var style = $(event.target).find("select[name=style]")[0].value;
+    var spinContainer = $("div.spinner-container");
+    $("div.result").addClass('hidden');
+    spinContainer.spin();
     $.ajax({
       type: 'HEAD',
       url: event.target.action,
@@ -64,6 +67,7 @@ $(document).ready(function() {
       },
       success: function(data, status, xhr) {
         history.pushState({}, 'googlify', $.url.build({ params: { url: url, style: style } }));
+        spinContainer.spin(false);
         renderImage(url, style);
       },
       error: function(data, status, xhr) {

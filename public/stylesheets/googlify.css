@@ -60,3 +60,7 @@
 .hidden {
   display: none;
 }
+
+.spinner {
+  padding-bottom: 10%;
+}
