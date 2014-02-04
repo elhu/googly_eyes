@@ -1,3 +1,14 @@
+window.onpopstate = function(event) {
+  processState();
+};
+
+function processState() {
+  var params = getParameters();
+  if (params.url !== undefined) {
+    renderImage(params.url, params.style);
+  }
+}
+
 function renderImage(imgUrl, style) {
   var container = $("div.result");
   var protocol = window.location.protocol;
@@ -32,10 +43,7 @@ function getParameters() {
 }
 
 $(document).ready(function() {
-  var params = getParameters();
-  if (params.url !== undefined) {
-    renderImage(params.url, params.style);
-  }
+  processState();
   $.getJSON("/styles", function(styles) {
     styles.forEach(function(style) {
       var opt = "<option name=" + style + ">" + style + "</option>";
@@ -55,6 +63,7 @@ $(document).ready(function() {
         style: style
       },
       success: function(data, status, xhr) {
+        history.pushState({}, 'googlify', $.url.build({ params: { url: url, style: style } }));
         renderImage(url, style);
       },
       error: function(data, status, xhr) {
