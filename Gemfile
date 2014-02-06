@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'faraday'
 gem 'mini_magick'
+gem 'rake'
 gem 'sinatra'
 gem 'whenever'
 
