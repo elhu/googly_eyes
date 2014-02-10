@@ -18,6 +18,7 @@ class Googlify
   def googlify!
     return filepath if File.exists?(filepath)
     conn = Faraday.new(url: URI::encode(@url))
+    blob = ''
     Timeout::timeout(5) do
       blob = conn.get { |r| r.options.timeout = 5; r.options.open_timeout = 2 }.body
     end
