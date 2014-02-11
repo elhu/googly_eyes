@@ -65,7 +65,7 @@
 }
 
 /* Mobile styles */
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 63em) {
   .home-menu .pure-menu-heading {
     font-size: 1.5em;
   }
@@ -84,7 +84,7 @@
 }
 
 /* Desktop styles */
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 63em) {
   .home-menu ul {
     padding: 5px 20px;
     float: right;
