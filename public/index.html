@@ -9,6 +9,7 @@
     <script src="/javascripts/jquery.urldecoder.min.js"></script>
     <script src="/javascripts/spin.js"></script>
     <script src="/javascripts/jquery.spin.js"></script>
+    <script src="/javascripts/ZeroClipboard.min.js"></script>
     <script src="/javascripts/googlify.js"></script>
   </head>
   <body>
@@ -33,7 +34,8 @@
           <fieldset>
             <div class="pure-control-group">
               <label for="permalink">Get permalink:</label>
-              <input type="text" name="permalink" placeholder="" />
+              <input id="permalink" type="text" name="permalink" placeholder="" />
+              <button id="copy-permalink" data-clipboard-target="permalink" class="pure-button">Copy</button>
             </div>
           </fieldset>
         </form>

@@ -42,8 +42,24 @@ function getParameters() {
   return hash;
 }
 
+function manageCopy() {
+  ZeroClipboard.config({moviePath: "/javascripts/ZeroClipboard.swf"});
+  var target = $('#copy-permalink');
+  var client = new ZeroClipboard(target);
+  console.log(client);
+  client.on("complete", function(client, args) {
+    var oldValue = $(this).html();
+    $(this).html("Copied!");
+    setTimeout(function() {
+      target.html(oldValue);
+    }, 2000);
+  });
+}
+
 $(document).ready(function() {
   processState();
+  manageCopy();
+
   $.getJSON("/styles", function(styles) {
     styles.forEach(function(style) {
       var opt = "<option name=" + style + ">" + style + "</option>";
