@@ -46,13 +46,13 @@ function manageCopy() {
   ZeroClipboard.config({moviePath: "/javascripts/ZeroClipboard.swf"});
   var target = $('#copy-permalink');
   var client = new ZeroClipboard(target);
-  console.log(client);
+  var showSuccess = function() {
+    target.find('i').toggleClass('fa-clipboard fa-check');
+    target.toggleClass('button-success');
+  };
   client.on("complete", function(client, args) {
-    var oldValue = $(this).html();
-    $(this).html("Copied!");
-    setTimeout(function() {
-      target.html(oldValue);
-    }, 2000);
+    showSuccess();
+    setTimeout(showSuccess, 1000);
   });
 }
 
