@@ -11,8 +11,8 @@ set :use_sudo, false
 set(:deploy_to) { "/home/app/#{application}" }
 
 set :normalize_asset_timestamps, false
-set :ruby_path, "/home/app/.rbenv/versions/2.1.0/"
-set :bundle_cmd, "PATH=/home/app/.rbenv/versions/2.1.0/bin/:$PATH bundle"
+set :ruby_path, "/home/app/.rbenv/shims/ruby"
+set :bundle_cmd, "PATH=/home/app/.rbenv/shims/ruby:$PATH bundle"
 set :whenever_command, "#{bundle_cmd} exec whenever"
 
 after "deploy:restart", "deploy:cleanup"
