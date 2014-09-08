@@ -1,10 +1,35 @@
+require 'sass'
+
 require 'json'
 require 'sinatra/base'
+require 'sinatra/assetpack'
 
 require 'googly_eyes/googlify'
 require 'googly_eyes/eyes_cache'
 
+
 class API < Sinatra::Base
+  register Sinatra::AssetPack
+
+  assets do
+    js :application, [
+      "/js/lib/spin.js",
+      "/js/lib/jquery.spin.js",
+      "/js/lib/ZeroClipboard.min.js",
+      "/js/lib/jquery.urldecoder.min.js",
+      "/js/*.js"
+    ]
+    css :application, [
+      "/css/bourbon/**/*.scss",
+      "/css/base/**/*.scss",
+      "/css/neat/**/*.scss",
+      "/css/application.scss"
+      # "/css/application.css"
+    ]
+    js_compression :jsmin
+    # css_compression :sass
+  end
+
   get '/googlify' do
     begin
       if params[:url]
@@ -24,6 +49,6 @@ class API < Sinatra::Base
   end
 
   get '/' do
-    [200, File.read('public/index.html')]
+    erb :index
   end
 end

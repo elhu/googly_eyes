@@ -6,3 +6,8 @@ task :console do
   ARGV.clear
   IRB.start
 end
+
+APP_FILE  = 'lib/googly_eyes.rb'
+APP_CLASS = 'API'
+
+require 'sinatra/assetpack/rake'

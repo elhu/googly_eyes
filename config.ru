@@ -6,17 +6,17 @@ map "/public" do
   run Rack::Directory.new("./public")
 end
 
-map "/javascripts" do
-  run Rack::Directory.new("./public/javascripts")
-end
+# map "/javascripts" do
+#   run Rack::Directory.new("./public/javascripts")
+# end
 
 map "/images" do
   run Rack::Directory.new("./public/images")
 end
 
-map "/stylesheets" do
-  run Rack::Directory.new("./public/stylesheets")
-end
+# map "/stylesheets" do
+#   run Rack::Directory.new("./public/stylesheets")
+# end
 
 
 disable :run, :reload
