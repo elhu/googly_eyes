@@ -1,13 +1,10 @@
-// Uncomment this for a sticky footer.
-//
-// .wrapper-for-content-outside-of-footer {
-//   min-height: 100%;
-//   height: auto !important;
-//   height: 100%;
-//   margin: 0 auto -4em;
-// }
-
 $base-spacing: 2em;
+
+@media (max-width: 348px) {
+  .footer-2 {
+    display: none;
+  }
+}
 
 .footer-2 {
   $footer-background: desaturate(darken($base-accent-color, 20), 30);
@@ -19,6 +16,10 @@ $base-spacing: 2em;
   padding: $base-spacing;
   padding-top: $base-spacing / 2;
   width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 10vh;
 
   .footer-logo {
     margin-right: 1em;
