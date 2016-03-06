@@ -23,7 +23,7 @@ class Googlify
       blob = conn.get { |r| r.options.timeout = 5; r.options.open_timeout = 2 }.body
     end
     @image = MiniMagick::Image.read(blob)
-    faces = FaceFinder.new.find_faces(@url)
+    faces = FaceFinder.new.find_faces(blob)
     faces.each do |face|
       place_googly_eyes(face)
     end

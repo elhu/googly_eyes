@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'faraday'
 gem 'mini_magick'
+gem 'ropencv'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-assetpack'
