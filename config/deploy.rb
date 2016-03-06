@@ -12,7 +12,7 @@ set(:deploy_to) { "/home/app/#{application}" }
 
 set :normalize_asset_timestamps, false
 set :ruby_path, "/home/app/.rbenv/shims/ruby"
-set :bundle_cmd, "PATH=/home/app/.rbenv/shims/ruby:$PATH bundle"
+set :bundle_cmd, "PATH=/home/app/.rbenv/shims/:$PATH bundle"
 set :whenever_command, "#{bundle_cmd} exec whenever"
 
 after "deploy:restart", "deploy:cleanup"
