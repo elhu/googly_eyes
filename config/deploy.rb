@@ -38,5 +38,9 @@ after 'deploy:create_symlink' do
   run "ln -nfs #{shared_path}/public/eyesoup #{current_path}/public/eyesoup"
 end
 
+before 'deploy:create_symlink' do
+  run "cd #{release_path} && #{bundle_cmd} exec rake assetpack:precompile"
+end
+
 require 'bundler/capistrano'
 require 'whenever/capistrano'
